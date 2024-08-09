@@ -1,9 +1,10 @@
 package DeckOfCards;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public  record  Card(Suit suit, String face , int rank)
+public  record  Card(Suit suit, String face , int rank) implements Comparator<Card>
 {
 
   @Override
@@ -89,6 +90,9 @@ public  record  Card(Suit suit, String face , int rank)
 
 
 
-
-
+  @Override
+  public int compare(Card o1, Card o2)
+  {
+    return Integer.compare(o1.rank,o2.rank);
+  }
 }
