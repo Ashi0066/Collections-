@@ -9,53 +9,53 @@ public class TaskData
 {
     private static String tasks= """		
             Infrastructure , Logging , High
-            Infrastructure , DB Access ,	 Medium	
-            Infrastructure , Security ,	 High	
-            Infrastructure , Password Policy ,	 Medium	
+            Infrastructure , DB Access ,Medium	
+            Infrastructure , Security ,	 High
+            Infrastructure , Password Policy , Medium	
             Infrastructure , Task Table	, Medium	
-            Infrastructure , Employee Table	, Medium	
+            Infrastructure , Employee Table, Medium	
             Infrastructure , Cross Reference Tables , High	
             Infrastructure , Encryption Policy , High	
             Infrastructure , Write View ,Low	
             Infrastructure , Set Up Users, Low	
-            Infrastructure , Set Up Access Policy ,	 Low			
-            Infrastructure , Security High ,In Progress
+            Infrastructure , Set Up Access Policy ,Low			
+            Infrastructure , Security  , High
             Infrastructure , Password Policy , Medium ,	 In Progress
             Infrastructure , Cloud solutions , Medium ,	 In Progress
-            Infrastructure , Encryption Policy ,	High	
+            Infrastructure , Encryption Policy ,High	
             Infrastructure , Project Table , Medium	
-            Infrastructure , Write Views ,	Low	 In Progress
-            Infrastructure , Write Views , Low ,In Progress		
+            Infrastructure , Write Views ,Low ,	 In Progress
+            Infrastructure , Write Views , Low , In Progress		
             Infrastructure , Security ,	 High ,	 In Progress
             Infrastructure , Security ,	 High ,	 In Progress
             Infrastructure , Password Policy ,	 Medium	
             Infrastructure , Encryption Policy , High	
-            Infrastructure , Write Views	 Low ,	 In Progress			
-            Infrastructure , Logging ,	 High	, In Progress
-            Infrastructure , DB Access ,	 Medium	
-            Infrastructure , Password Policy ,	 Medium	
+            Infrastructure , Write Views ,Low ,	 In Progress			
+            Infrastructure , Logging , High	, In Progress
+            Infrastructure , DB Access , Medium	
+            Infrastructure , Password Policy , Medium	
             Data Design	, Task Table ,	 High	
-            Data Access	, Write Views ,	 Low	
+            Data Access	, Write Views ,	 Low, assigned
             """;
 
 
     private static String annstasks= """
-             Infrastructure , DB Access ,	 Medium
-            Infrastructure , Password Policy ,	 Medium
-            Data Design	, Task Table ,	 High
-            Data Access	, Write Views ,	 Low
+             Infrastructure , DB Access , Medium
+            Infrastructure , Password Policy ,Medium
+            Data Design	, Task Table ,High
+            Data Access	, Write Views , Low, Assigned
             """;
 
     private static String bobsTasks= """
-            Infrastructure , Logging ,	 High	, In Progress
-            Infrastructure , DB Access ,	 Medium
-            Infrastructure , Password Policy ,	 Medium
+            Infrastructure , Logging ,High	, In Progress
+            Infrastructure , DB Access ,Medium
+            Infrastructure , Password Policy , Medium
             Data Design	, Task Table ,	 High
             Data Access	, Write Views ,	 Low
             """;
     private static String carolsTasks= """
-            Infrastructure , Logging ,	 High	, In Progress
-            Infrastructure , DB Access ,	 Medium
+            Infrastructure , Logging ,	 High, In Progress
+            Infrastructure , DB Access , Medium
             Infrastructure , Password Policy ,	 Medium
             Data Design	, Task Table ,	 High
             Data Access	, Write Views ,	 Low
@@ -77,10 +77,10 @@ public class TaskData
             String[] data = taskData.split(",");
             Arrays.asList(data).replaceAll(String::trim);
 
-           Status status = (data.length<=3)? Status.In_progress:
-                   Status.valueOf(data[3].toUpperCase().replace(' ','-'));
+           Status status = (data.length<=3)? Status.IN_PROGRESS:
+                   Status.valueOf(data[3].toUpperCase().replace(' ','_'));
 
-           Priority priority = Priority.valueOf(data[2].replace('_',' ').toUpperCase());
+           Priority priority = Priority.valueOf(data[2].toUpperCase());
 
            taskList.add(new Task(data[0],user,data[1],priority,status));
 

@@ -11,10 +11,10 @@ public class Task implements Comparable<Task>
 
 
     public Task(String projectName,String assignee,String description,Priority priority,Status status){
-
+        this.projectName=projectName;
         this.assignee=assignee;
         this.description=description;
-        this.projectName=projectName;
+    
         this.priority=priority;
         this.status=status;
 
@@ -22,7 +22,7 @@ public class Task implements Comparable<Task>
     }
     public Task(String projectName,String assignee,String description,Priority priority){
 
-        this(projectName,assignee,description,priority,assignee==null? Status.In_progress:Status.Not_yet_Assigned);
+        this(projectName,assignee,description,priority,assignee==null? Status.IN_PROGRESS:Status.NoT_YET_ASSIGNED);
 
 
 
@@ -31,7 +31,7 @@ public class Task implements Comparable<Task>
 
     public Task(String projectName, String description, Priority priority)
     {
-        this(projectName,description,null,priority,Status.Not_yet_Assigned);
+        this(projectName,description,null,priority,Status.NoT_YET_ASSIGNED);
 
     }
 
@@ -43,6 +43,11 @@ public class Task implements Comparable<Task>
     public String getProjectName()
     {
         return projectName;
+    }
+
+    public Priority getPriority(){
+
+        return priority;
     }
 
     public String getDescription()
